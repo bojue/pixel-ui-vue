@@ -16,11 +16,18 @@
       <PUDivider text="条状" type="strip"/>
     </div>
 
-    <SubTitle text="粗线"/>
+    <SubTitle text="粗细"/>
     <div class="sub-content">
       <PUDivider text="细线" thin/>
       <PUDivider text="默认" />
       <PUDivider text="粗线" bold/>
+    </div>
+    <SubTitle text="内容大小"/>
+    <div class="sub-content">
+      <PUDivider text="大号文本" size="large"/>
+      <PUDivider text="默认文本" size="default"/>
+      <PUDivider text="小号文本" size="small"/>
+      <PUDivider text="最小号文本" size="mini"/>
     </div>
     <SubTitle text="自定义宽度"/>
     <div class="sub-content">
@@ -46,11 +53,6 @@
 import { ref, computed } from 'vue'
 import SubTitle from '@/components/comps/SubTitle.vue'
 import PUDivider from '@/components/lib/Divider.vue'
-
-const customStyle = ref({
-  color: 'rgb(255, 125, 0)',
-  borderColor:'rgb(255, 125, 0)'
-})
 
 </script>
 

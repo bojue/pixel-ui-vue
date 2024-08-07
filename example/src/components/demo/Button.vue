@@ -5,7 +5,7 @@
     <PUButton text="主要按钮" type="primary"></PUButton>
     <PUButton text="成功按钮" type="success"></PUButton>
     <PUButton text="警告按钮" type="warning"></PUButton>
-    <PUButton text="危险按钮" type="danger"></PUButton>
+    <PUButton text="错误按钮" type="error"></PUButton>
   </div>
   <SubTitle text="辅助类型"/>
   <div class="sub-content">
@@ -25,7 +25,7 @@
   <SubTitle text="按钮形状"/>
   <div class="sub-content">
     <PUButton text="默认按钮" type="primary" ></PUButton>
-    <PUButton text="方形按钮" type="success" fillet></PUButton>
+    <PUButton text="圆角按钮" type="success" fillet></PUButton>
     <PUButton text="圆形按钮" type="warning" rounded></PUButton>
   </div>
   <SubTitle text="加载按钮"/>
@@ -46,13 +46,13 @@
     <PUButton text="默认按钮" type="primary" size="default"></PUButton>
     <PUButton text="小号按钮" type="success" size="small"></PUButton>
     <PUButton text="迷你按钮" type="warning" size="mini"></PUButton>
-    <PUButton text="大号按钮" type="danger" plain size="large"></PUButton>
+    <PUButton text="大号按钮" type="error" plain size="large"></PUButton>
   </div>
   <SubTitle text="按钮宽度"/>
   <div class="sub-content">
     <PUButton text="铺满" type="primary" width="full"></PUButton>
     <PUButton text="一半" type="success" width="half"></PUButton>
-    <PUButton text="三分之一" type="danger" width="third"></PUButton>
+    <PUButton text="三分之一" type="error" width="third"></PUButton>
   </div>
   <SubTitle text="块级元素"/>
   <div class="sub-content">
@@ -76,15 +76,12 @@ import PUButton from '@/components/lib/Button.vue'
 
 
 .sub-content {
-padding: 10px 20px;
+padding: 10px 12px;
 background: #fff;
 
 > * {
   margin-right: 15px;
   margin-bottom: 15px;
-  &:nth-child(3n) {
-    margin-right: 0px;
-  }
   }
 }
 

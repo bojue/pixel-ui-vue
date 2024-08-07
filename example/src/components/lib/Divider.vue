@@ -24,6 +24,7 @@ const props = defineProps({
   borderColor: String,
   borderStyle: String, 
   background: String,
+  size: String,
   width: {
     type: String,
     default: '100%'
@@ -37,6 +38,7 @@ const {
   bold,
   thin,
   align,
+  size,
   contentColor,
   color,
   borderColor,
@@ -56,17 +58,29 @@ const classes = computed(() => [
   }])
 
 const compStyles = computed(() => {
+  const _fontSize = getFontSize(size)
   const data = {
     color: contentColor || color,
     borderColor: borderColor || color,
     borderStyle: background ? 'none': borderStyle,
     background,
+    fontSize: _fontSize,
     height,
     '--max-width': width
   }
-
   return data
 })
+
+const getFontSize = (size) => {
+  const data = {
+    large: '18px',
+    default: '16px',
+    small: '14px',
+    mini: '12px'
+  }
+
+  return data[size] || size
+}
 
 
 
@@ -77,7 +91,7 @@ const compStyles = computed(() => {
 .pu-divider {
   display: -webkit-box;
   display: -webkit-flex;
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;

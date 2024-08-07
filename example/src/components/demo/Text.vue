@@ -1,22 +1,34 @@
 <template>
-  <SubTitle text="默认文本"/>
+  <SubTitle text="默认"/>
   <div class="sub-content">
     <PUText text="默认文本样式"></PUText>
   </div>
-  <SubTitle text="按照类型"/>
+  <SubTitle text="类型"/>
   <div class="sub-content">
     <PUText text="主要" type="primary"></PUText>
     <PUText text="成功" type="success"></PUText>
     <PUText text="警告" type="warning"></PUText>
-    <PUText text="危险" type="danger"></PUText>
+    <PUText text="错误" type="error"></PUText>
     <PUText text="默认" type="info"></PUText>
   </div>
-  <SubTitle text="文本大小"/>
+  <SubTitle text="大小"/>
   <div class="sub-content">
     <PUText text="大号文本" size="large"></PUText>
     <PUText text="默认文本" size="default"></PUText>
     <PUText text="小号文本" size="small"></PUText>
-    <PUText text="迷你文本" size="mini"></PUText>
+    <PUText text="最小号" size="mini"></PUText>
+  </div>
+  <SubTitle text="修饰"/>
+  <div class="sub-content">
+    <PUText text="下划线" type="primary" underline></PUText>
+    <PUText text="上划线" type="success" overline></PUText>
+    <PUText text="删除" type="error" del></PUText>
+  </div>
+  <SubTitle text="状态"/>
+  <div class="sub-content">
+    <PUText text="只读" type="primary" readonly></PUText>
+    <PUText text="禁用" type="primary" disabled></PUText>
+    <PUText text="只读且禁用" type="success" disabled readonly></PUText>
   </div>
   <SubTitle text="姓名脱敏"/>
   <div class="sub-content">
@@ -29,7 +41,7 @@
   <SubTitle text="超链接"/>
   <div class="sub-content">
     <PUText mode="link" text="Go to Github" borderBottom href="https://www.github.com"></PUText>
-    <PUText mode="link" text="Go to Github" type="danger" href="https://www.github.com"></PUText>
+    <PUText mode="link" text="Go to Github" type="error" href="https://www.github.com"></PUText>
   </div>
   <SubTitle text="金额格式化"/>
   <div class="sub-content">

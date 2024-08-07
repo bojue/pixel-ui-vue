@@ -1,5 +1,5 @@
 <template>
-  <span class="pu-text" :class="classes" :style="compStyles" @click="handClick">
+  <span class="pu-text" :class="classes" :style="compStyles">
     {{ mode ? puModeValue  : text}}
   </span>
 </template>
@@ -33,7 +33,12 @@ const props = defineProps({
   background: String,
   currency: String,
   lines: String,
-  overflow: String
+  overflow: String,
+  del: Boolean,
+  disabled: Boolean,
+  underline: Boolean,
+  overline: Boolean,
+  readonly: Boolean,
 })
 
 const {
@@ -50,17 +55,28 @@ const {
   overflow,
   lines,
   currency,
-  background
+  background,
+  underline,
+  del,
+  overline,
+  disabled,
+  readonly
 } = props
 const classes = computed(() => [
   'pu-text', 
   `pu-text-${type}`, 
   `pu-text-mode-${mode}`, 
   `pu-text-overflow-${overflow}`,
+  `pu-text-decoration-${undefined}`,
   {
     'pu-border-bottom': borderBottom,
     'pu-text-block': block,
-    'pu-text-overflow': !!overflow
+    'pu-text-overflow': !!overflow,
+    'pu-text-delete': del,
+    'pu-text-disabled': disabled,
+    'pu-text-underline': underline,
+    'pu-text-overline': overline,
+    'pu-text-readonly': readonly
   }])
 
 const compStyles = computed(() => {
@@ -79,10 +95,10 @@ const compStyles = computed(() => {
 
 const getFontSize = (size) => {
   const data = {
-    large: '16px',
-    default: '14px',
-    small: '12px',
-    mini: '10px'
+    large: '18px',
+    default: '16px',
+    small: '14px',
+    mini: '12px'
   }
 
   return data[size] || size
@@ -101,10 +117,6 @@ const puModeValue = computed(() => {
   }
 })
 
-const handClick = () => {
-  window.open(href)
-}
-
 function getBorderColor() {
   let bdColor 
   const isHref = mode === 'link' && borderBottom
@@ -113,7 +125,7 @@ function getBorderColor() {
   //   primary: '#165DFF',
   //   success: '#07c160',
   //   warning: 'rgb(255, 125, 0)',
-  //   danger: 'rgb(245, 63, 63)'
+  //   error: 'rgb(245, 63, 63)'
   // }
   if(isHref) {
     bdColor = '#3c9cff'
@@ -154,7 +166,7 @@ function desensitizePhoneNumber(phoneNumber) {
 
 .pu-text {
   color: rgb(48, 49, 51);
-  font-size: 14px;
+  font-size: 16px;
   padding: 2px 4px;
 }
 
@@ -167,7 +179,7 @@ function desensitizePhoneNumber(phoneNumber) {
 .pu-text-warning {
   color: rgb(255, 125, 0);
 }
-.pu-text-danger {
+.pu-text-error {
   color:rgb(245, 63, 63);
 }
 .pu-text-info {
@@ -196,6 +208,26 @@ function desensitizePhoneNumber(phoneNumber) {
 .pu-text-overflow-scroll {
   overflow: scroll;
   overflow-x:auto;
+}
+
+.pu-text-overline {
+  text-decoration: overline;
+}
+
+.pu-text-delete {
+  text-decoration: line-through;
+}
+
+.pu-text-underline {
+  text-decoration: underline;
+}
+
+.pu-text-disabled {
+  opacity: 0.5;
+}
+
+.pu-text-readonly {
+  user-select: none;
 }
 
 </style>
