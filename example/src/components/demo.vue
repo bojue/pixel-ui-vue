@@ -12,6 +12,7 @@
       <PUButtonDemo v-if="currType === 'button'"/>
       <PUTextDemo v-if="currType === 'text'"/>
       <PUFabDemo v-if="currType == 'fab'" />
+      <PUTagDemo v-if="currType == 'tag'" />
     </div>
   </div>
 </template>
@@ -21,24 +22,28 @@ import PUDividerDemo from '@/components/demo/Divider.vue'
 import PUButtonDemo from '@/components/demo/Button.vue'
 import PUTextDemo from '@/components/demo/Text.vue'
 import PUFabDemo from '@/components/demo/Fab.vue'
+import PUTagDemo from '@/components/demo/Tag.vue'
 
 defineProps({
   msg: String,
 })
 
-const currType = ref('fab')
+const currType = ref('tag')
 const list = ref([{
-  name: '按钮',
+  name: '按钮(Button)',
   type: 'button'
 }, {
-  name: '文本',
+  name: '文本(Text)',
   type: 'text'
 },{
-  name: '分割线',
+  name: '分割线(Divider)',
   type: 'divider'
 }, {
-  name: '浮选按钮',
+  name: '浮选按钮(Fab)',
   type: 'fab'
+}, {
+  name: '标签(Tag)',
+  type: 'tag'
 }])
 </script>
 
@@ -49,12 +54,12 @@ const list = ref([{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 500px;
+  width: 580px;
   display: flex;
   flex-direction: row;
 
   .comp-list {
-    width: 90px;
+    width: 140px;
     margin: 0 10px;
   }
 

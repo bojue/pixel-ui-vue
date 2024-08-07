@@ -94,7 +94,7 @@ const compStyles = computed(() => {
   cursor: pointer;
   border-radius: 0;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   border-radius: 0px;
   height: 40px;
@@ -104,6 +104,7 @@ const compStyles = computed(() => {
 
 .pu-btn-disabled {
   opacity: 0.5;
+  cursor: not-allowedr;
 }
 
 .pu-btn-loading {
@@ -164,7 +165,7 @@ const compStyles = computed(() => {
     color:rgb(255, 125, 0);
   }
 }
-.pu-btn-danger {
+.pu-btn-error {
   background: rgb(245, 63, 63);
   border-color: rgb(245, 63, 63);
   &.pu-btn-plain{
@@ -183,19 +184,19 @@ const compStyles = computed(() => {
 .pu-btn-size-default {
   padding: 4px 15px;
   height: 40px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .pu-btn-size-small {
   padding: 0px 7px;
   height: 32px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .pu-btn-size-mini {
   padding: 0px 7px;
   height: 26px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .pu-btn-width-full {
