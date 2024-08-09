@@ -1,55 +1,50 @@
-
 <template>
   <h2>组件库</h2>
   <div class="components">
-    <div class="comp-list">
-      <div class="comp-item" v-for="item of list" @click="currType = item.type" :class="{active: currType === item.type}">
-        {{ item.name }}
+    <div class="comp-classification">
+      <div class="classification-item" v-for="item of list">
+        <div class="title">{{ item.name }}</div>
+        <div class="comp-list">
+          <div class="comp-item" v-for="item of item.children" @click="currType = item.type"
+            :class="{ active: currType === item.type }">
+            {{ item.name }}
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="pixel-mobile">
       <PUDividerDemo v-if="currType === 'divider'" />
-      <PUButtonDemo v-if="currType === 'button'"/>
-      <PUTextDemo v-if="currType === 'text'"/>
+      <PUButtonDemo v-if="currType === 'button'" />
+      <PUTextDemo v-if="currType === 'text'" />
       <PUFabDemo v-if="currType == 'fab'" />
       <PUTagDemo v-if="currType == 'tag'" />
+      <PUInputDemo v-if="currType == 'input'" />
+      <PUTextareaDemo v-if="currType == 'textarea'" />
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
+import { data } from './data'
 import PUDividerDemo from '@/components/demo/Divider.vue'
 import PUButtonDemo from '@/components/demo/Button.vue'
 import PUTextDemo from '@/components/demo/Text.vue'
 import PUFabDemo from '@/components/demo/Fab.vue'
 import PUTagDemo from '@/components/demo/Tag.vue'
+import PUInputDemo from '@/components/demo/Input.vue'
+import PUTextareaDemo from '@/components/demo/Tag.vue'
 
 defineProps({
   msg: String,
 })
 
-const currType = ref('tag')
-const list = ref([{
-  name: '按钮(Button)',
-  type: 'button'
-}, {
-  name: '文本(Text)',
-  type: 'text'
-},{
-  name: '分割线(Divider)',
-  type: 'divider'
-}, {
-  name: '浮选按钮(Fab)',
-  type: 'fab'
-}, {
-  name: '标签(Tag)',
-  type: 'tag'
-}])
+const currType = ref('input')
+const list = ref(data)
 </script>
 
 
 <style lang="scss" scoped>
-
 .components {
   position: absolute;
   left: 50%;
@@ -59,8 +54,17 @@ const list = ref([{
   flex-direction: row;
 
   .comp-list {
-    width: 140px;
+    width: 120px;
     margin: 0 10px;
+  }
+
+  .classification-item {
+    .title {
+      opacity: 0.5;
+      font-size: 14px;
+      height: 40px;
+      line-height: 40px;
+    }
   }
 
   .comp-item {
@@ -68,17 +72,13 @@ const list = ref([{
     height: 32px;
     line-height: 32px;
     color: #fff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    margin-right: 10px;
     text-align: center;
-    border: 1px solid #d9d9d9;
-    color: rgba(0, 0, 0, 0.88);
+    color: rgba(0, 0, 0, 0.58);
+    font-size: 14px;
 
     &.active {
-      border: 1px solid #165DFF;
-      background: #165DFF;
-      color: #FFF;
+      color: #165DFF;
+      background: aliceblue;
     }
   }
 }
@@ -92,5 +92,4 @@ const list = ref([{
   border-radius: 6px;
   box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.07);
 }
-
 </style>
