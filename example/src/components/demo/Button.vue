@@ -25,8 +25,8 @@
   <SubTitle text="按钮形状"/>
   <div class="sub-content">
     <PUButton text="默认按钮" type="primary" ></PUButton>
-    <PUButton text="圆角按钮" type="success" fillet></PUButton>
-    <PUButton text="圆形按钮" type="warning" rounded></PUButton>
+    <PUButton text="圆角按钮" type="success" rounded></PUButton>
+    <PUButton text="圆形按钮" type="warning" circle></PUButton>
   </div>
   <SubTitle text="加载按钮"/>
   <div class="sub-content">
@@ -39,8 +39,6 @@
     <PUButton text="成功按钮" type="success" disabled></PUButton>
     <PUButton text="警告按钮" type="warning" disabled></PUButton>
   </div>
-
-
   <SubTitle text="按钮大小"/>
   <div class="sub-content">
     <PUButton text="默认按钮" type="primary" size="default"></PUButton>

@@ -27,7 +27,7 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  fillet: {
+  circle: {
     type: Boolean,
     default: false
   },
@@ -51,7 +51,7 @@ const {
   disabled,
   text,
   plain,
-  fillet,
+  circle,
   rounded,
   color,
   size,
@@ -62,7 +62,7 @@ const {
 const classes = computed(() => ['pu-btn', `pu-btn-${type}`, `pu-btn-size-${size}`, `pu-btn-width-${width}`, {
   'pu-btn-plain': plain,
   'pu-btn-disabled': disabled,
-  'pu-btn-fillet': fillet,
+  'pu-btn-circle': circle,
   'pu-btn-rounded': rounded,
   'pu-btn-block': block,
   'pu-btn-loading': loading
@@ -94,11 +94,12 @@ const compStyles = computed(() => {
   cursor: pointer;
   border-radius: 0;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   border-radius: 0px;
-  height: 40px;
-  padding: 4px 15px;
+  height: 38px;
+  line-height: 1;
+  padding: 2px 15px;
   border: 1px solid #d9d9d9;
 }
 
@@ -113,11 +114,11 @@ const compStyles = computed(() => {
 }
 
 
-.pu-btn-fillet {
+.pu-btn-rounded {
   border-radius: 6px;
 }
 
-.pu-btn-rounded {
+.pu-btn-circle {
   border-radius: 40px;
 }
 
@@ -175,7 +176,7 @@ const compStyles = computed(() => {
 }
 
 .pu-btn-size-large {
-  padding: 6.5px 15px;
+  padding: 6px 15px;
   height: 50px;
   font-size: 16px;
   width: 100%;
@@ -196,7 +197,7 @@ const compStyles = computed(() => {
 .pu-btn-size-mini {
   padding: 0px 7px;
   height: 26px;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .pu-btn-width-full {
