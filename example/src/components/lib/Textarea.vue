@@ -1,6 +1,6 @@
 <template>
-  <view  :class="parentClasses" >
-    <input 
+  <view :class="parentClasses" >
+    <textarea 
       :class="classes"
       :type="type" 
       :style="compStyles"  
@@ -8,13 +8,15 @@
       :disabled="disabled"
       :maxLength="maxLength"
       :placeholder="placeholder"
-      :vModel="value" 
-      @input=handInput($event)>
-      <div class="word-count" v-if="wordCount || wordCountOnly">
+      :value="value" 
+      @input=handInput($event) 
+      >
+      </textarea>
+      <span class="word-count" v-if="wordCount">
         <span class="word-count-value">0</span>
-        <span class="word-count-symbol" v-if="!wordCountOnly">/</span>
-        <span class="word-count-max" v-if="!wordCountOnly">{{ total }}</span>
-      </div>
+        <span class="word-count-symbol">/</span>
+        <span class="word-count-max">{{ total }}</span>
+      </span>
   </view>
 </template>
 <script lang="ts" setup>
@@ -33,10 +35,14 @@ const props = defineProps({
   },
   total: {
     type: Number,
-    default: 10,
+    default: 140,
   },
   value: String,
   maxLength: Number,
+  rows: {
+    type: Number,
+    default: 2,
+  },
   wordCount: Boolean,
   rounded: Boolean, 
   circle: Boolean,
@@ -51,13 +57,10 @@ const {
   disabled,
   rounded,
   readonly,
-  wordCountOnly,
-  circle,
+  rows,
   value,
-  type,
   border,
   wordCount,
-  maxLength,
   total
 } = props
 
@@ -70,9 +73,9 @@ const handInput = (event) => {
     const len = word.value?.length
     countDom.innerHTML = len
     const hasErrorClass = countContainerDom?.classList?.contains('error')
-    if(len > total && !hasErrorClass && !wordCountOnly) {
+    if(len > total && !hasErrorClass) {
       countContainerDom.classList?.add('error')
-    } else if(len <= total && hasErrorClass && !wordCountOnly){
+    } else if(len <= total && hasErrorClass){
       countContainerDom.classList?.remove('error')
     }
   }
@@ -80,20 +83,15 @@ const handInput = (event) => {
 
 const parentClasses = computed(() => [
   'pu-form-item-container',
-  {
-    'pu-input-border-rounded': rounded,
-    'pu-input-border-circle': circle,
-    'no-border': border === 'none',
-    'border-bottom': border === 'bottom'
-  }
 ])
 
 const classes = computed(() => [
-    'pu-input',
-    {
-      'pu-input-border-rounded': rounded,
-      'pu-input-border-circle': circle,
-    }
+  'pu-textarea',
+  {
+    'pu-textarea-border-rounded': rounded,
+    'no-border': border === 'none',
+    'border-bottom': border === 'bottom'
+  }
 
 ])
 
@@ -105,8 +103,9 @@ const compStyles = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-input {
+textarea {
   outline-style: none;
+  resize: none;
   :disabled{
     background: rgba(120, 120, 128, 0.1);
     cursor: not-allowed;
@@ -121,32 +120,28 @@ input {
 }
 
 .pu-form-item-container {
-  display: flex;
   width: 100%;
   position: relative;
-  border: 1px solid #e5e6eb;
+  display: inline-block;
 }
-.pu-input {
-  position: relative;
+.pu-textarea {
   font-size: 14px;
   padding: 8px 16px;
-  height: 24px;
   line-height: 24px;
   width: -webkit-fill-available;
   color: #1d2129;
-  display: flex;
-  border:none;
+  border: 1px solid #e5e6eb;
   &::placeholder {
     color: #aaa;
   }
 }
 
 
-.pu-input-border-rounded {
+.pu-textarea-border-rounded {
   border-radius: 6px;
 }
 
-.pu-input-border-circle {
+.pu-textarea-border-circle {
   border-radius: 9999px;
 }
 
@@ -162,10 +157,11 @@ input {
 .word-count {
   color: #86909c;
   font-size: 12px;
-  right: 10px;
-  bottom: 10px;
-  padding: 4px;
+  right: 8px;
+  left: auto;
+  bottom: 5px;
   line-height: 32px;
+  position: absolute;
 }
 
 .error {

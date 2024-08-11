@@ -27,7 +27,7 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  fillet: {
+  circle: {
     type: Boolean,
     default: false
   },
@@ -51,7 +51,7 @@ const {
   disabled,
   text,
   plain,
-  fillet,
+  circle,
   rounded,
   color,
   size,
@@ -62,7 +62,7 @@ const {
 const classes = computed(() => ['pu-btn', `pu-btn-${type}`, `pu-btn-size-${size}`, `pu-btn-width-${width}`, {
   'pu-btn-plain': plain,
   'pu-btn-disabled': disabled,
-  'pu-btn-fillet': fillet,
+  'pu-btn-circle': circle,
   'pu-btn-rounded': rounded,
   'pu-btn-block': block,
   'pu-btn-loading': loading
@@ -114,11 +114,11 @@ const compStyles = computed(() => {
 }
 
 
-.pu-btn-fillet {
+.pu-btn-rounded {
   border-radius: 6px;
 }
 
-.pu-btn-rounded {
+.pu-btn-circle {
   border-radius: 40px;
 }
 

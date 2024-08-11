@@ -21,6 +21,7 @@
       <PUTagDemo v-if="currType == 'tag'" />
       <PUInputDemo v-if="currType == 'input'" />
       <PUTextareaDemo v-if="currType == 'textarea'" />
+      <PUSwitchDemo v-if="currType == 'switch'" />
     </div>
   </div>
 </template>
@@ -33,13 +34,14 @@ import PUTextDemo from '@/components/demo/Text.vue'
 import PUFabDemo from '@/components/demo/Fab.vue'
 import PUTagDemo from '@/components/demo/Tag.vue'
 import PUInputDemo from '@/components/demo/Input.vue'
-import PUTextareaDemo from '@/components/demo/Tag.vue'
+import PUTextareaDemo from '@/components/demo/Textarea.vue'
+import PUSwitchDemo from '@/components/demo/Switch.vue'
 
 defineProps({
   msg: String,
 })
 
-const currType = ref('input')
+const currType = ref('switch')
 const list = ref(data)
 </script>
 
@@ -54,8 +56,9 @@ const list = ref(data)
   flex-direction: row;
 
   .comp-list {
-    width: 120px;
+    width: 140px;
     margin: 0 10px;
+    word-wrap: normal;
   }
 
   .classification-item {
@@ -64,6 +67,8 @@ const list = ref(data)
       font-size: 14px;
       height: 40px;
       line-height: 40px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.58);
     }
   }
 
@@ -72,7 +77,8 @@ const list = ref(data)
     height: 32px;
     line-height: 32px;
     color: #fff;
-    text-align: center;
+    white-space: nowrap;
+    text-align: left;
     color: rgba(0, 0, 0, 0.58);
     font-size: 14px;
 

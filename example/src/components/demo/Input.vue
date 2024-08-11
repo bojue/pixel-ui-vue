@@ -1,43 +1,53 @@
 <template>
   <SubTitle text="默认"/>
   <div class="sub-content">
-    <PUInput text="默认内容"></PUInput>
+    <PUInput placeholder="默认" text="默认内容"></PUInput>
   </div>
-  <SubTitle text="形状类型"/>
+  <SubTitle text="自定义类型"/>
   <div class="sub-content">
-    <PUInput placeholder="直角"></PUInput>
-    <PUInput placeholder="圆角"></PUInput>
+    <PUInput type="text" placeholder="默认文本"></PUInput>
+    <PUInput type="password" placeholder="密码"></PUInput>
+    <PUInput type="number" placeholder="数字"></PUInput>
+  </div>
+  <SubTitle text="边角"/>
+  <div class="sub-content">
+    <PUInput placeholder="默认（直角）"></PUInput>
+    <PUInput placeholder="圆角" rounded></PUInput>
+    <PUInput placeholder="圆形" circle></PUInput>
+  </div>
+
+  <SubTitle text="底部边框"/>
+  <div class="sub-content">
+    <PUInput placeholder="底部边框" border="bottom"></PUInput>
+  </div>
+  <SubTitle text="无边框"/>
+  <div class="sub-content">
+    <PUInput placeholder="无边框" border="none"></PUInput>
   </div>
   <SubTitle text="可清空内容"/>
   <div class="sub-content">
     <PUInput></PUInput>
   </div>
-  <SubTitle text="数字键盘"/>
+  <SubTitle text="统计字数"/>
   <div class="sub-content">
-    <PUInput></PUInput>
+    <PUInput placeholder="统计字数（默认）" wordCount></PUInput>
+    <PUInput placeholder="自定义长度：12" wordCount total="12"></PUInput>
+    <PUInput placeholder="仅统计字数" wordCountOnly></PUInput>
   </div>
-  <SubTitle text="密码类型"/>
+  <SubTitle text="最大长度"/>
   <div class="sub-content">
-    <PUInput></PUInput>
+    <PUInput placeholder="最大长度(maxLength=20)" maxLength="20"></PUInput>
   </div>
-  
-  <SubTitle text="显示下划线"/>
+  <SubTitle text="状态"/>
   <div class="sub-content">
-    <PUInput ></PUInput>
+    <PUInput placeholder="禁止" value="测试禁止功能" disabled></PUInput>
+    <PUInput placeholder="只读" value="测试只读功能" readonly></PUInput>
   </div>
-  <SubTitle text="禁止"/>
-  <div class="sub-content">
-    <PUInput></PUInput>
-  </div>
-  <SubTitle text="只读"/>
-  <div class="sub-content">
-    <PUInput></PUInput>
-  </div>
-  <SubTitle text="前后插槽"/>
+  <!-- <SubTitle text="前后插槽"/>
   <div class="sub-content">
     <PUInput placeholder="前插槽"></PUInput>
     <PUInput placeholder="后插槽"></PUInput>
-  </div>
+  </div> -->
 </template>
 <script setup>
 import { ref, computed } from 'vue'
@@ -58,7 +68,7 @@ const customStyle = ref({
   background: #fff;
   padding: 10px 12px;
   > * {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     margin-right: 5px;
   }
 }
