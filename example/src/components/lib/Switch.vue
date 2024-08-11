@@ -103,7 +103,15 @@ const buttonSizeConfig = (state) => {
       padding: 3,
     }
   }
-  return sizeMap[state] || sizeMap['default']
+  const customStyle = {}
+  if(!sizeMap[state] && parseInt(state)) {
+    customStyle[state] = {
+      height: parseInt(state),
+      width: parseInt(state) * 2 - 3*2,
+      padding: 3,
+    }
+  }
+  return sizeMap[state] || customStyle[state] || sizeMap['default']
 }
 
 const switchStyle = computed(() => {

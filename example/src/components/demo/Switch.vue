@@ -21,6 +21,10 @@
     <PUSwitch size="small" :text="textZH" checked></PUSwitch>
     <PUSwitch size="small" :text="textZH" rightAngle ></PUSwitch>
   </div>
+  <SubTitle text="自定义大小"/>
+  <div class="sub-content">
+    <PUSwitch size="32px" checked></PUSwitch>
+  </div>
   <SubTitle text="自定义颜色"/>
   <div class="sub-content">
     <PUSwitch active-color="rgb(52, 199, 89)" :checked="checked"></PUSwitch>

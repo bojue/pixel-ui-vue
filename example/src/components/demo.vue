@@ -56,12 +56,13 @@ const list = ref(data)
   flex-direction: row;
 
   .comp-list {
-    width: 140px;
+    width: 150px;
     margin: 0 10px;
     word-wrap: normal;
   }
 
   .classification-item {
+    cursor: pointer;
     .title {
       opacity: 0.5;
       font-size: 14px;
@@ -73,7 +74,7 @@ const list = ref(data)
   }
 
   .comp-item {
-    width: 100%;
+    width: calc(100% - 20px);
     height: 32px;
     line-height: 32px;
     color: #fff;
@@ -81,11 +82,24 @@ const list = ref(data)
     text-align: left;
     color: rgba(0, 0, 0, 0.58);
     font-size: 14px;
+    position: relative;
+    padding: 0  10px;
 
     &.active {
       color: #165DFF;
       background: aliceblue;
+
+      &:after {
+        content: "➔";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin:0 5px 10px;
+        position: absolute;
+        right: 10px;
+      }
     }
+
   }
 }
 

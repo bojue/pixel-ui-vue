@@ -25,7 +25,7 @@ export const data = [{
     name: '单选框',
     type: 'radio'
   }, {
-    name: '开关',
+    name: '开关（Switch）',
     type: 'switch'
   }]
 },
