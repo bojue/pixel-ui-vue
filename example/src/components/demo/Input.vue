@@ -43,6 +43,12 @@
     <PUInput placeholder="禁止" value="测试禁止功能" disabled></PUInput>
     <PUInput placeholder="只读" value="测试只读功能" readonly></PUInput>
   </div>
+  <SubTitle text="文字位置"/>
+  <div class="sub-content">
+    <PUInput placeholder="左侧" value="左侧" text-align="left"></PUInput>
+    <PUInput placeholder="中间" value="中间" text-align="center"></PUInput>
+    <PUInput placeholder="右侧" value="右侧" text-align="right"></PUInput>
+  </div>
   <!-- <SubTitle text="前后插槽"/>
   <div class="sub-content">
     <PUInput placeholder="前插槽"></PUInput>
