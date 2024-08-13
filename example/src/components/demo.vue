@@ -22,6 +22,8 @@
       <PUInputDemo v-if="currType == 'input'" />
       <PUTextareaDemo v-if="currType == 'textarea'" />
       <PUSwitchDemo v-if="currType == 'switch'" />
+      <PULinkDemo v-if="currType === 'link'"/>
+      <PURadioDemo v-if="currType === 'radio'"/>
     </div>
   </div>
 </template>
@@ -36,12 +38,14 @@ import PUTagDemo from '@/components/demo/Tag.vue'
 import PUInputDemo from '@/components/demo/Input.vue'
 import PUTextareaDemo from '@/components/demo/Textarea.vue'
 import PUSwitchDemo from '@/components/demo/Switch.vue'
+import PULinkDemo from '@/components/demo/Link.vue'
+import PURadioDemo from '@/components/demo/Radio.vue'
 
 defineProps({
   msg: String,
 })
 
-const currType = ref('switch')
+const currType = ref('radio')
 const list = ref(data)
 </script>
 

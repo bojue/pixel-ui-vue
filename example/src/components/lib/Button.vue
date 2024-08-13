@@ -105,7 +105,7 @@ const compStyles = computed(() => {
 
 .pu-btn-disabled {
   opacity: 0.5;
-  cursor: not-allowedr;
+  cursor: not-allowed;
 }
 
 .pu-btn-loading {
