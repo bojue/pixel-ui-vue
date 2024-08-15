@@ -5,11 +5,20 @@ export const data = [{
     name: '按钮（Button）',
     type: 'button'
   }, {
+    name: '超级连接（Link）',
+    type: 'link'
+  }, {
     name: '浮选按钮（Fab）',
     type: 'fab'
   }]
-},
-{
+},{
+  name: "布局",
+  type:'layout',
+  children : [ {
+    name: '分割线（Divider）',
+    type: 'divider'
+  },]
+},{
   name: '表单组件',
   type: 'form',
   children: [{
@@ -25,7 +34,7 @@ export const data = [{
     name: '单选框',
     type: 'radio'
   }, {
-    name: '开关',
+    name: '开关（Switch）',
     type: 'switch'
   }]
 },
@@ -39,12 +48,5 @@ export const data = [{
     name: '标签（Tag）',
     type: 'tag'
   }]
-},{
-  name: "布局",
-  type:'layout',
-  children : [ {
-    name: '分割线（Divider）',
-    type: 'divider'
-  },]
 }
 ]

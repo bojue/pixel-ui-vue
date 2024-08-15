@@ -8,7 +8,7 @@
       :disabled="disabled"
       :maxLength="maxLength"
       :placeholder="placeholder"
-      :vModel="value" 
+      :value="value" 
       @input=handInput($event)>
       <div class="word-count" v-if="wordCount || wordCountOnly">
         <span class="word-count-value">0</span>
@@ -36,6 +36,7 @@ const props = defineProps({
     default: 10,
   },
   value: String,
+  textAlign: String,
   maxLength: Number,
   wordCount: Boolean,
   rounded: Boolean, 
@@ -48,6 +49,7 @@ const props = defineProps({
 
 const { 
   placeholder,
+  textAlign,
   disabled,
   rounded,
   readonly,
@@ -99,6 +101,7 @@ const classes = computed(() => [
 
 const compStyles = computed(() => {
   const style = {
+    textAlign
   }
   return style
 })
